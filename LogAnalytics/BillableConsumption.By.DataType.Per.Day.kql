@@ -1,0 +1,8 @@
+let tmpTable = Usage 
+| where TimeGenerated > ago(92d)
+| where StartTime >= startofday(ago(91d)) and EndTime < startofday(now())
+| where IsBillable == true
+// | where DataType == 'FunctionAppLogs'
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType;
+tmpTable
+| order by StartTime asc, DataType asc
