@@ -1,0 +1,4 @@
+AzureDiagnostics
+| summarize by ResourceProvider
+| distinct ResourceProvider
+| order by ResourceProvider asc
