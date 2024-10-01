@@ -1,0 +1,4 @@
+AzureDiagnostics
+| summarize by EventName_s
+| distinct EventName_s
+| order by EventName_s asc
