@@ -1,0 +1,4 @@
+AzureMetrics
+| summarize by MetricName
+| distinct MetricName
+| order by MetricName asc
