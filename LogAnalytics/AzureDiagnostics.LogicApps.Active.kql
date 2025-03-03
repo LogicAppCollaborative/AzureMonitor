@@ -1,0 +1,5 @@
+AzureDiagnostics
+| where Category == "WorkflowRuntime"
+| where OperationName == "Microsoft.Logic/workflows/workflowRunCompleted"
+| where TimeGenerated >= ago(28d)
+| distinct resource_workflowName_s
